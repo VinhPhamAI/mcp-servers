@@ -181,6 +181,14 @@ npm install
 npm run start:sse
 ```
 
+### Run with Docker
+```shell
+# Docker command
+docker build -t everything-app -f src/everything/Dockerfile .
+docker run -p 3000:3000 everything-app
+```
+
+
 ## Run with [Streamable HTTP Transport](https://modelcontextprotocol.io/specification/2025-03-26/basic/transports#streamable-http)
 
 ```shell

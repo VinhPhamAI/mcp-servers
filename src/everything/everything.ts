@@ -125,7 +125,7 @@ export const createServer = () => {
         params: { uri },
       });
     }
-  }, 10000);
+  }, 60000);
 
   let logLevel: LoggingLevel = "debug";
   let logsUpdateInterval: NodeJS.Timeout | undefined;
@@ -154,7 +154,7 @@ export const createServer = () => {
     };
     if (!isMessageIgnored(message.params.level as LoggingLevel))
       server.notification(message);
-  }, 20000);
+  }, 120000);
 
 
   // Set up update interval for stderr messages
@@ -168,7 +168,7 @@ export const createServer = () => {
       method: "notifications/stderr",
       params: { content: `${shortTimestamp}: A stderr message` },
     });
-  }, 30000);
+  }, 180000);
 
   // Helper method to request sampling from client
   const requestSampling = async (
