@@ -407,13 +407,19 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   }
 });
 
-async function main() {
-  const transport = new StdioServerTransport();
-  await server.connect(transport);
-  console.error("Knowledge Graph MCP Server running on stdio");
-}
+// Export the server and manager for use in sse.ts
+export { server, knowledgeGraphManager };
 
-main().catch((error) => {
-  console.error("Fatal error in main():", error);
-  process.exit(1);
-});
+// Comment out or remove the main() function and its call since we're using SSE now
+// async function main() { ... }
+// main().catch(...);
+// {
+//   const transport = new StdioServerTransport();
+//   await server.connect(transport);
+//   console.error("Knowledge Graph MCP Server running on stdio");
+// }
+
+// main().catch((error) => {
+//   console.error("Fatal error in main():", error);
+//   process.exit(1);
+// });
