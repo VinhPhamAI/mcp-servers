@@ -272,7 +272,10 @@ async function runServer() {
   console.error("Sequential Thinking MCP Server running on stdio");
 }
 
-runServer().catch((error) => {
-  console.error("Fatal error running server:", error);
-  process.exit(1);
-});
+export { SequentialThinkingServer, SEQUENTIAL_THINKING_TOOL };
+
+// Remove or comment out the runServer() part since we're using SSE now
+// runServer().catch((error) => {
+//   console.error("Fatal error running server:", error);
+//   process.exit(1);
+// });

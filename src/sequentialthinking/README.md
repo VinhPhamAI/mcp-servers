@@ -135,6 +135,7 @@ Docker:
 
 ```bash
 docker build -t mcp/sequentialthinking -f src/sequentialthinking/Dockerfile .
+docker run -p 3000:3000 mcp/sequentialthinking
 ```
 
 ## License
