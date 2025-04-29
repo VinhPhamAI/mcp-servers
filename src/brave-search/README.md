@@ -159,6 +159,8 @@ Docker build:
 
 ```bash
 docker build -t mcp/brave-search:latest -f src/brave-search/Dockerfile .
+
+docker run -p 3000:3000 -e BRAVE_API_KEY=your_api_key mcp/brave-search:latest
 ```
 
 ## License

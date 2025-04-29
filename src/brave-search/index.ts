@@ -364,13 +364,9 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   }
 });
 
-async function runServer() {
-  const transport = new StdioServerTransport();
-  await server.connect(transport);
-  console.error("Brave Search MCP Server running on stdio");
-}
+// Export the server for use in sse.ts
+export { server };
 
-runServer().catch((error) => {
-  console.error("Fatal error running server:", error);
-  process.exit(1);
-});
+// Remove the runServer function and its call since we're using SSE now
+// async function runServer() { ... }
+// runServer().catch(...);

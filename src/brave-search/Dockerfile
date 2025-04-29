@@ -17,7 +17,10 @@ COPY --from=builder /app/package.json /app/package.json
 COPY --from=builder /app/package-lock.json /app/package-lock.json
 
 ENV NODE_ENV=production
+# Add environment variable placeholder
+ENV BRAVE_API_KEY=""
 
 RUN npm ci --ignore-scripts --omit-dev
 
-ENTRYPOINT ["node", "dist/index.js"]
+CMD ["npm", "run", "start:sse"]
+
